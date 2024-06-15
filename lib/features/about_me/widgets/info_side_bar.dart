@@ -26,6 +26,7 @@ class _InfoSideBarState extends State<InfoSideBar> {
     Timer(const Duration(microseconds: 400), () {
       setState(() {
         _isPersonalInfoExpanded = true;
+        _isContactInfoExpanded = true;
       });
     });
     super.initState();
