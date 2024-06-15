@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/components/custom_text_button.dart';
 import 'package:my_portfolio/constants/app_sizes.dart';
 import 'package:my_portfolio/constants/constants.dart';
 import 'package:my_portfolio/constants/image_assets.dart';
 import 'package:my_portfolio/state/about_me_state.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InfoSideBar extends StatefulWidget {
   const InfoSideBar({super.key});
@@ -91,11 +93,26 @@ class _InfoSideBarState extends State<InfoSideBar> {
               _isContactInfoExpanded = !_isContactInfoExpanded;
             });
           },
-          height: 80,
+          // height: 80,
           children: [
-            _buildContactInfoRow(ImageAssets.email, 'abrarshahok@gmail.com'),
+            _buildContactInfoRow(
+              ImageAssets.email,
+              'abrarshahok@gmail.com',
+              Uri.parse('mailto:abrarshahok@gmail.com'),
+            ),
             gapH8,
-            _buildContactInfoRow(ImageAssets.phone, '+92 310-3877376'),
+            _buildContactInfoRow(
+              ImageAssets.phone,
+              '+92 310-3877376',
+              Uri.parse('tel:+92 310-3877376'),
+            ),
+            gapH8,
+            _buildContactInfoRow(
+              ImageAssets.cv,
+              'Resume/CV',
+              Uri.parse(
+                  'https://drive.google.com/file/d/1JYzx7zUegKQt_EXN9sEW6hxH0S1kuHq6/view?usp=drivesdk'),
+            ),
           ],
         ),
       ],
@@ -175,17 +192,24 @@ class _InfoSideBarState extends State<InfoSideBar> {
     );
   }
 
-  Widget _buildContactInfoRow(String asset, String text) {
-    return Row(
-      children: [
-        gapW16,
-        Image.asset(asset, width: 20, height: 20),
-        gapW12,
-        Text(
-          text,
-          style: firaCode,
-        ),
-      ],
+  Widget _buildContactInfoRow(String asset, String text, Uri uri) {
+    return GestureDetector(
+      onTap: () => launchUrl(uri),
+      child: Row(
+        children: [
+          gapW16,
+          ClipOval(child: Image.asset(asset, width: 20, height: 20)),
+          gapW12,
+          Text(
+            text,
+            style: firaCode.copyWith(
+              decoration: TextDecoration.underline,
+              decorationColor: linkColor,
+              color: linkColor,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

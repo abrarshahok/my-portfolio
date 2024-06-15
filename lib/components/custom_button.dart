@@ -31,7 +31,8 @@ class CustomButton extends StatelessWidget {
             color: Colors.white,
           ),
           borderRadius: const BorderRadius.only(
-            bottomRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
         ),
         padding: const EdgeInsets.symmetric(
@@ -44,10 +45,11 @@ class CustomButton extends StatelessWidget {
           children: [
             Text(
               text,
-              style: firaCode.copyWith(
-                fontSize: 16,
-                color: primaryColor,
-              ),
+              style: textStyle ??
+                  firaCode.copyWith(
+                    fontSize: 16,
+                    color: primaryColor,
+                  ),
             ),
             gapW8,
             Icon(

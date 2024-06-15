@@ -14,10 +14,9 @@ class ImageAssets {
   static const String close = 'assets/images/close.png';
   static const String phone = 'assets/images/phone.png';
   static const String email = 'assets/images/email.png';
+  static const String cv = 'assets/images/cv.jpg';
   static const String animation = 'assets/images/coding.json';
-  static const String code = 'assets/images/code.jpg';
 
   // Projects
-  static const String notesApp = 'assets/projects/notes_app.png';
-  static const String scanner = 'assets/projects/scanner.png';
+  static const String code = 'assets/projects/code.png';
 }

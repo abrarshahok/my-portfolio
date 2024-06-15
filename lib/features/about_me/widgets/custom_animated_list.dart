@@ -3,8 +3,10 @@ import 'experience_widget.dart';
 
 class CustomAnimatedList extends StatefulWidget {
   final List<Map<String, dynamic>> infoList;
+  final bool isEducation;
 
-  const CustomAnimatedList({super.key, required this.infoList});
+  const CustomAnimatedList(
+      {super.key, required this.infoList, this.isEducation = false});
 
   @override
   State<CustomAnimatedList> createState() => _CustomAnimatedListState();
@@ -64,15 +66,15 @@ class _CustomAnimatedListState extends State<CustomAnimatedList>
     return Column(
       children: widget.infoList
           .asMap()
-          .map((index, education) => MapEntry(
+          .map((index, experience) => MapEntry(
                 index,
                 FadeTransition(
                   opacity: _fadeAnimations![index],
                   child: SlideTransition(
                     position: _offsetAnimations![index],
                     child: ExperienceWidget(
-                      experienceInfo: education,
-                      isEducation: true,
+                      experienceInfo: experience,
+                      isEducation: widget.isEducation,
                     ),
                   ),
                 ),

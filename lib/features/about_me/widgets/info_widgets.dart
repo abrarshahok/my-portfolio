@@ -13,8 +13,27 @@ class InfoWidgets extends StatelessWidget {
   final List<Map<String, dynamic>> _experienceInfoList = [
     {
       'title': 'Flutter Developer',
+      'company': 'Keeper',
+      'location': 'Bengaluru, Karnataka, India',
+      'duration': 'April 2024 - Present',
+      'responsibilities':
+          '''Created the entire Keeper app and deployed it to the Play Store within the first 2 weeks. Responsible for converting Figma designs into Flutter app UI, integrating APIs, implementing deep linking, and ensuring high-quality, clean code.
+    ''',
+      'technologies': [
+        'Dart',
+        'Flutter',
+        'Firebase',
+        'Rest APIs (HTTP)',
+        'Figma to Flutter',
+        'Deep Linking',
+        'Google Play Console'
+      ],
+    },
+    {
+      'title': 'Flutter Developer',
       'company': 'Digiarno (SMC-PRIVATE) LTD',
-      'duration': 'February 2024 - Present',
+      'location': 'Islamabad, Pakistan',
+      'duration': 'February 2024 - April 2024',
       'responsibilities':
           '''Responsible for developing high-quality mobile applications using Flutter. Currently involved in the development of two applications, one of which has been successfully deployed on the Google Play Store. Tasks include UI/UX design, backend API integration, and ensuring overall user experience improvement.
     ''',
@@ -30,8 +49,9 @@ class InfoWidgets extends StatelessWidget {
     },
     {
       'title': 'Flutter Developer Intern',
-      'company': 'SuperLabs India',
-      'duration': 'October 2023 - December 2023\n(3 Months)',
+      'company': 'Superlabs',
+      'location': 'India',
+      'duration': 'October 2023 - December 2023',
       'responsibilities':
           '''Led the development of the Augmntx app, a global platform for hiring developers and fostering collaboration. Successfully launched the first version on the Play Store.
     ''',
@@ -45,8 +65,9 @@ class InfoWidgets extends StatelessWidget {
     },
     {
       'title': 'Flutter Developer Intern',
-      'company': 'Techlancerz Hyderabad',
-      'duration': 'October 2023 - December 2023\n(2 Months)',
+      'company': 'Techlancerz',
+      'location': 'Hyderabad, Pakistan',
+      'duration': 'October 2023 - December 2023',
       'responsibilities':
           '''Played a crucial role in developing the "ElfaSpace" app, focusing on design and implementation for a seamless user experience. Developed over 20 pages App.
     ''',
@@ -89,7 +110,10 @@ class InfoWidgets extends StatelessWidget {
     } else if (aboutMeState.currentIndex == 1) {
       return CustomAnimatedList(infoList: _experienceInfoList);
     } else if (aboutMeState.currentIndex == 2) {
-      return CustomAnimatedList(infoList: _educationInfoList);
+      return CustomAnimatedList(
+        infoList: _educationInfoList,
+        isEducation: true,
+      );
     }
     return Container();
   }

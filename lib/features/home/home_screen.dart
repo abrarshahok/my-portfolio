@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.sizeOf(context);
     final appBarStateProvider = Provider.of<AppBarStateProvider>(context);
-    int currentIndex = appBarStateProvider.currentIndex;
+    String currentPath = appBarStateProvider.currentPath;
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
@@ -34,12 +34,12 @@ class HomeScreen extends StatelessWidget {
             children: [
               // Header for my portfolio
               Header(scaffoldKey: _scaffoldKey),
-              if (currentIndex == 0) const Spacer(),
+              if (currentPath == '/') const Spacer(),
 
               // All Main Screens like (Landing Page, About Me, Projects, and Contact Me)
               Expanded(
                 child: SingleChildScrollView(
-                  padding: currentIndex == 0
+                  padding: currentPath == '/'
                       ? const EdgeInsets.symmetric(horizontal: Sizes.p20)
                       : EdgeInsets.zero,
                   child: const MainScreen(),
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
               ),
 
               // Footer for my portfolio
-              if (currentIndex == 0) ...[
+              if (currentPath == '/') ...[
                 const Spacer(),
                 const Footer(),
               ],

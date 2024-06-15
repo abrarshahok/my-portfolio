@@ -20,23 +20,40 @@ class _AboutMeInfoContainerState extends State<AboutMeInfoContainer>
   };
 
   // Technical Skills
-  List<String> technicalSkills = [
-    'Mobile App Development',
+  List<String> programmingLanguages = [
     'Dart',
+    'C',
+    'C++',
+    'Java',
+    'JavaScript',
+  ];
+
+  List<String> frameworks = [
     'Flutter',
-    'Android Development',
-    'IOS Development',
-    'Flutter Web',
-    'MySQL',
+    'NodeJS',
+    'ExpressJS',
+  ];
+
+  List<String> databasesAndORMs = [
+    'MySQL (Sequelize)',
     'Firebase',
-    'Rest APIs (HTTP)',
+    'MongoDB (Mongoose)',
+  ];
+
+  List<String> others = [
+    'Data Structures and Algorithms (DSA)',
+    'Linux',
     'Clean Architecture',
-    'Object-Oriented Programming (OOP)',
+    'MVC',
+    'Deep Linking',
     'State Management (Bloc, Provider)',
-    'Figma to Flutter',
-    'AdMob Integration',
+    'Data Serialization (Freezed, JsonSerializable)',
+    'Routing (Auto-Router, Go-Router)',
+    'Rest APIs (HTTP)',
+    'Object-Oriented Programming (OOP)',
+    'Git & GitHub',
     'Google Play Console',
-    'Git & Github',
+    'Google Ads Integration',
   ];
 
   // Soft Skills
@@ -68,7 +85,7 @@ class _AboutMeInfoContainerState extends State<AboutMeInfoContainer>
 
   void _initAnimations() {
     _controllers = List<AnimationController>.generate(
-      4,
+      7,
       (index) => AnimationController(
         duration: const Duration(milliseconds: 500),
         vsync: this,
@@ -106,7 +123,10 @@ class _AboutMeInfoContainerState extends State<AboutMeInfoContainer>
   @override
   Widget build(BuildContext context) {
     List<Map<String, List<String>>> skillsList = [
-      {'Technical Skills': technicalSkills},
+      {'Programming Languages': programmingLanguages},
+      {'Frameworks': frameworks},
+      {'Databases & ORMS': databasesAndORMs},
+      {'Others': others},
       {'Soft Skills': softSkills},
       {'Languages': languages},
     ];
@@ -143,7 +163,7 @@ class _AboutMeInfoContainerState extends State<AboutMeInfoContainer>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${_infoMap['name']}, ${_infoMap['title']}',
+                    '${_infoMap['name']} | ${_infoMap['title']}',
                     style: firaCode.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,

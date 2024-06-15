@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/features/about_me/screens/about_me_screen.dart';
-import 'package:my_portfolio/features/contact/contact_screen.dart';
 import 'package:my_portfolio/features/landing_page/landing_page.dart';
 import 'package:my_portfolio/features/project/projects_screen.dart';
 import 'package:my_portfolio/state/app_bar_state.dart';
@@ -12,15 +11,13 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBarStateProvider = Provider.of<AppBarStateProvider>(context);
-    int currentIndex = appBarStateProvider.currentIndex;
-    if (currentIndex == 0) {
+    String currentPath = appBarStateProvider.currentPath;
+    if (currentPath == '/') {
       return const LandingPage();
-    } else if (currentIndex == 1) {
+    } else if (currentPath == '/about-me') {
       return const AboutMeScreen();
-    } else if (currentIndex == 2) {
+    } else if (currentPath == '/projects') {
       return const ProjectsScreen();
-    } else if (currentIndex == 3) {
-      return const ContactScreen();
     } else {
       return Container();
     }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/components/custom_text_button.dart';
-import 'package:my_portfolio/constants/app_sizes.dart';
-import 'package:my_portfolio/constants/breakpoints.dart';
+import '/components/custom_text_button.dart';
+import '/constants/app_sizes.dart';
+import '/constants/breakpoints.dart';
+import '/state/app_bar_state.dart';
 import 'package:my_portfolio/constants/constants.dart';
-import 'package:my_portfolio/state/app_bar_state.dart';
 import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
@@ -41,7 +41,7 @@ class MobileHeader extends StatelessWidget {
             gapW12,
             InkWell(
               onTap: () {
-                appBarStateProvider.changeIndex(0);
+                appBarStateProvider.setPath('/');
               },
               child: Text(
                 'abrar-ahmed-shahok',
@@ -72,7 +72,7 @@ class DesktopHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBarStateProvider = Provider.of<AppBarStateProvider>(context);
-    int currentIndex = appBarStateProvider.currentIndex;
+    String currentPath = appBarStateProvider.currentPath;
     return Column(
       children: [
         Row(
@@ -80,7 +80,7 @@ class DesktopHeader extends StatelessWidget {
             gapW12,
             InkWell(
               onTap: () {
-                appBarStateProvider.changeIndex(0);
+                appBarStateProvider.setPath('/');
               },
               child: Text(
                 'abrar-ahmed-shahok',
@@ -91,11 +91,11 @@ class DesktopHeader extends StatelessWidget {
             dividerH,
             CustomTextButton(
               onPressed: () {
-                appBarStateProvider.changeIndex(0);
+                appBarStateProvider.setPath('/');
               },
               child: Text(
                 '_hello',
-                style: currentIndex == 0
+                style: currentPath == '/'
                     ? firaCode.copyWith(
                         color: primaryColor,
                         fontWeight: FontWeight.w500,
@@ -106,11 +106,11 @@ class DesktopHeader extends StatelessWidget {
             dividerH,
             CustomTextButton(
               onPressed: () {
-                appBarStateProvider.changeIndex(1);
+                appBarStateProvider.setPath('/about-me');
               },
               child: Text(
                 '_about-me',
-                style: currentIndex == 1
+                style: currentPath == '/about-me'
                     ? firaCode.copyWith(
                         color: primaryColor,
                         fontWeight: FontWeight.w500,
@@ -121,27 +121,11 @@ class DesktopHeader extends StatelessWidget {
             dividerH,
             CustomTextButton(
               onPressed: () {
-                appBarStateProvider.changeIndex(2);
+                appBarStateProvider.setPath('/projects');
               },
               child: Text(
                 '_projects',
-                style: currentIndex == 2
-                    ? firaCode.copyWith(
-                        color: primaryColor,
-                        fontWeight: FontWeight.w500,
-                      )
-                    : firaCode,
-              ),
-            ),
-            dividerH,
-            CustomTextButton(
-              onPressed: () {
-                appBarStateProvider.changeIndex(3);
-              },
-              width: 160,
-              child: Text(
-                '_contact-me',
-                style: currentIndex == 3
+                style: currentPath == '/projects'
                     ? firaCode.copyWith(
                         color: primaryColor,
                         fontWeight: FontWeight.w500,

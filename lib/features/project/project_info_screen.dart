@@ -23,6 +23,7 @@ class ProjectInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final projectsState = Provider.of<ProjectsState>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -87,7 +87,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         ),
                       ] else
                         Text(
-                          '${widget.experienceInfo['title']!}, ${widget.experienceInfo['company']!}',
+                          '${widget.experienceInfo['title']!} | ${widget.experienceInfo['company']!}',
                           style: firaCode.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,

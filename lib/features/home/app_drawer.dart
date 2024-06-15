@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/components/custom_icon_button.dart';
-import 'package:my_portfolio/constants/app_sizes.dart';
-import 'package:my_portfolio/constants/constants.dart';
-import 'package:my_portfolio/constants/image_assets.dart';
-import 'package:my_portfolio/features/home/footer.dart';
-import 'package:my_portfolio/state/app_bar_state.dart';
+import '/components/custom_icon_button.dart';
+import '/constants/app_sizes.dart';
+import '/constants/constants.dart';
+import '/constants/image_assets.dart';
+import '/features/home/footer.dart';
+import '/state/app_bar_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/custom_text_button.dart';
@@ -15,7 +15,7 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBarStateProvider = Provider.of<AppBarStateProvider>(context);
-    int currentIndex = appBarStateProvider.currentIndex;
+    String currentPath = appBarStateProvider.currentPath;
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -57,12 +57,12 @@ class AppDrawer extends StatelessWidget {
           CustomTextButton(
             onPressed: () {
               Navigator.pop(context);
-              appBarStateProvider.changeIndex(0);
+              appBarStateProvider.setPath('/');
             },
             alignmentGeometry: Alignment.centerLeft,
             child: Text(
               '_hello',
-              style: currentIndex == 0
+              style: currentPath == '/'
                   ? firaCode.copyWith(
                       color: primaryColor,
                       fontWeight: FontWeight.w500,
@@ -76,12 +76,12 @@ class AppDrawer extends StatelessWidget {
           CustomTextButton(
             onPressed: () {
               Navigator.pop(context);
-              appBarStateProvider.changeIndex(1);
+              appBarStateProvider.setPath('/about-me');
             },
             alignmentGeometry: Alignment.centerLeft,
             child: Text(
               '_about-me',
-              style: currentIndex == 1
+              style: currentPath == '/about-me'
                   ? firaCode.copyWith(
                       color: primaryColor,
                       fontWeight: FontWeight.w500,
@@ -95,31 +95,12 @@ class AppDrawer extends StatelessWidget {
           CustomTextButton(
             onPressed: () {
               Navigator.pop(context);
-              appBarStateProvider.changeIndex(2);
+              appBarStateProvider.setPath('/projects');
             },
             alignmentGeometry: Alignment.centerLeft,
             child: Text(
               '_projects',
-              style: currentIndex == 2
-                  ? firaCode.copyWith(
-                      color: primaryColor,
-                      fontWeight: FontWeight.w500,
-                    )
-                  : firaCode,
-            ),
-          ),
-          gapH12,
-          dividerW,
-          gapH12,
-          CustomTextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              appBarStateProvider.changeIndex(3);
-            },
-            alignmentGeometry: Alignment.centerLeft,
-            child: Text(
-              '_contact-me',
-              style: currentIndex == 3
+              style: currentPath == '/projects'
                   ? firaCode.copyWith(
                       color: primaryColor,
                       fontWeight: FontWeight.w500,

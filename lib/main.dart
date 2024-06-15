@@ -1,9 +1,11 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/state/projects_state.dart';
 import 'package:provider/provider.dart';
-import 'package:my_portfolio/state/app_bar_state.dart';
-import 'package:my_portfolio/state/about_me_state.dart';
-import 'package:my_portfolio/features/home/home_screen.dart';
+import '/state/projects_state.dart';
+import '/state/app_bar_state.dart';
+import '/state/about_me_state.dart';
+import '/features/home/home_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -35,7 +37,15 @@ class MainApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: Consumer<AppBarStateProvider>(
+          builder: (context, provider, _) {
+            String? path = html.window.location.pathname;
+            if (provider.currentPath != path) {
+              provider.setPath(path);
+            }
+            return HomeScreen();
+          },
+        ),
       ),
     );
   }
