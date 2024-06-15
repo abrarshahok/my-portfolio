@@ -5,6 +5,7 @@ import 'package:my_portfolio/constants/app_sizes.dart';
 import 'package:my_portfolio/constants/breakpoints.dart';
 import 'package:my_portfolio/constants/constants.dart';
 import 'package:my_portfolio/constants/image_assets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -29,22 +30,20 @@ class Footer extends StatelessWidget {
             dividerH,
             gapW8,
             CustomIconButton(
-              onPressed: () {},
+              onPressed: () {
+                launchUrl(Uri.parse(
+                    'https://www.linkedin.com/in/abrar-ahmed-21bscs20/'));
+              },
               image: ImageAssets.linkedIn,
             ),
             gapW8,
             dividerH,
             gapW8,
             CustomIconButton(
-              onPressed: () {},
+              onPressed: () {
+                launchUrl(Uri.parse('https://instagram.com/abrar_shahok'));
+              },
               image: ImageAssets.instagram,
-            ),
-            gapW8,
-            dividerH,
-            gapW8,
-            CustomIconButton(
-              onPressed: () {},
-              image: ImageAssets.twitter,
             ),
             gapW8,
             dividerH,
@@ -55,12 +54,14 @@ class Footer extends StatelessWidget {
             gapW8,
             if (desktop)
               CustomTextButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchUrl(Uri.parse('https://github.com/abrarshahok'));
+                },
                 width: 0,
                 child: Row(
                   children: [
                     Text(
-                      '@ abrar-ahmed-21bscs20 ',
+                      '@abrarshahok ',
                       style: firaCode,
                     ),
                     Image.asset(
@@ -72,10 +73,11 @@ class Footer extends StatelessWidget {
               )
             else
               CustomIconButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchUrl(Uri.parse('https://github.com/abrarshahok'));
+                },
                 image: ImageAssets.github,
               ),
-            // if (showSpacer)
             gapW8,
           ],
         ),
