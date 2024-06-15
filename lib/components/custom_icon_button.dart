@@ -19,10 +19,12 @@ class CustomIconButton extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
-        child: Image.asset(
-          image,
-          height: 20,
-          color: color,
+        child: ClipOval(
+          child: Image.asset(
+            image,
+            height: 20,
+            color: color,
+          ),
         ),
       ),
     );

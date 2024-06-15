@@ -16,7 +16,5 @@ class ImageAssets {
   static const String email = 'assets/images/email.png';
   static const String cv = 'assets/images/cv.jpg';
   static const String animation = 'assets/images/coding.json';
-
-  // Projects
-  static const String code = 'assets/projects/code.png';
+  static const String leetcode = 'assets/images/leetcode.png';
 }

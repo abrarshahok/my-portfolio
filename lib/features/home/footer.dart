@@ -47,6 +47,15 @@ class Footer extends StatelessWidget {
             ),
             gapW8,
             dividerH,
+            gapW8,
+            CustomIconButton(
+              onPressed: () {
+                launchUrl(Uri.parse('https://leetcode.com/abrarahmedshahok20'));
+              },
+              image: ImageAssets.leetcode,
+            ),
+            gapW8,
+            dividerH,
             if (desktop) ...[
               const Spacer(),
               dividerH,
